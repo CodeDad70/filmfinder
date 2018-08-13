@@ -1,5 +1,5 @@
 import React from 'react';
-
+import FilmSearch from './containers/FilmSearch'
 
 class App extends React.Component {
   render() { 
@@ -9,7 +9,7 @@ class App extends React.Component {
   <div className="card-1">
     <h1> Welcome to the FilmFinder</h1>
     
-    
+    <FilmSearch/>
   </div>
     )
   }
