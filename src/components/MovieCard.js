@@ -4,10 +4,12 @@ import {connect} from 'react-redux';
 
 
 class MovieCard extends Component {
+  
   handleClicker =(e)=> {
     e.preventDefault()
     console.log("clicked !")
   }
+  
   render() {
     return (
       <div key={this.props.search.id} className = "MovieCard">

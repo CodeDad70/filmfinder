@@ -1,28 +1,36 @@
-import React from 'react';
+import React, {Component} from 'react' ;
+import {connect} from 'react-redux';
 
 
 
-const ActorCard  = ({search}) => (
+class ActorCard extends Component {
   
+  handleClicker =(e)=> {
+    e.preventDefault()
+    console.log("clicked !")
+  }
   
-  <div key={search.id} className = "MovieCard">
-  
-    <div className = "song-card">
-    {/* <div style={{ backgroundImage: "http://image.tmdb.org/t/p/w185//" + movie.backdrop_path }} > */}
-      {/* <img className="AlbumImage" src = {"http://image.tmdb.org/t/p/w185//" + movie.poster_path} alt={movie.name} / >   */}
+  render() {
+
+    let knownFor = this.props.search.known_for.map(movie=> <p>{movie.title}</p> )  
+    
+    return (
+      <div key={this.props.search.id} className = "MovieCard">
+    <div className = "song-card" onClick={this.handleClicker}>
       
-      <h3> {search.name} </h3>
+      <h3> {this.props.search.name} </h3>
       <h3>Best known for: </h3>
-      {search.known_for.map(movie=> <p>{search.title}</p> )  }<br/>
+      {knownFor}<br/>
       
-      <img className="ActorImage" src = {"http://image.tmdb.org/t/p/w300//" + search.profile_path} alt='Sorry - Image Not Available' / >  
+      <img className="ActorImage" src = {"http://image.tmdb.org/t/p/w300//" + this.props.search.profile_path} alt='Sorry - Image Not Available'/>  
       
       </div>
-    {/* </div>    */}
-  </div>
-)
+      </div>
+      
+    )
+  }
+  
+  }
+
 
 export default ActorCard;
-
-
-
