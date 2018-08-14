@@ -16,7 +16,7 @@ class MovieDisplay extends Component {
             if(search.title) {
           return <MovieCard key={search.id} search={search} />
             } else if (search.name) {
-              return <div><ActorCard key={search.id}  search={search} /></div>
+              return <div><ActorCard  key={search.id}  search={search} /></div>
             }
           })   
       }

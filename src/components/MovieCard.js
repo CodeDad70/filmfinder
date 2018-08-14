@@ -9,12 +9,12 @@ class MovieCard extends Component {
     e.preventDefault()
     console.log("clicked !")
   }
-  
+
   render() {
     return (
       <div key={this.props.search.id} className = "MovieCard">
   
-    <div className = "song-card" onClick={this.handleClicker}>
+    <div className = "song-card" onClick={this.handleClicker} >
     {/* <div style={{ backgroundImage: "http://image.tmdb.org/t/p/w185//" + movie.backdrop_path }} > */}
       <img className="AlbumImage" src = {"http://image.tmdb.org/t/p/w185//" + this.props.search.poster_path} alt={this.props.search.name} / >  
       <h3> {this.props.search.title} </h3>
