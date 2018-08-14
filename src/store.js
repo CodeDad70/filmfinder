@@ -10,7 +10,7 @@ import filmReducer from './reducers/filmReducer';
 
 
 const reducers = combineReducers ({
-  filmReducer, 
+  filmReducer
 
 });
 const middleware = [thunk]; 

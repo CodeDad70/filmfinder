@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getMovie} from '../actions/movies'
+import MovieDisplay from '../components/MovieDisplay'
 
 
 class FilmSearch extends Component {
