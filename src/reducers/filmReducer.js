@@ -1,7 +1,8 @@
 const filmReducer = (state = [], action) => {
   switch(action.type) {
-    case 'SEARCH_FILM':
-      return state.concat([action.data]);
+    case 'GET_MOVIE_SUCCESS':
+    console.log("inside reducer", action)
+      return action.movies;;
     default:
       return state;
   }

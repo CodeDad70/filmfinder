@@ -1,23 +1,32 @@
-const MOVIEDB_API_KEY = process.env.MOVIEDB_API_KEY;
+const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
 //action creators
 
-const setMovie = movie => {
+const setMovie = movies => {
+  console.log("inside setMovie", movies)
   return {
     type: 'GET_MOVIE_SUCCESS',
-    movie
+    movies
   }
 }
 
 
 
 //  -- Async Actions -- 
-export const getMovie =  () => {
+export const getMovie =  (movie) => {
+  console.log("API Key ", URL)
+  
+  console.log("movie sent to api", movie.title) 
+  
+  
+  
   return dispatch => {
-   
-    return fetch(`https://api.themoviedb.org/3/ghostbusters/550?api_key=${this.MOVIEDB_API_KEY}`)
+    console.log(process.env.REACT_APP_API_KEY)
+    return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_API_KEY}&language=en-US&query=${movie.title}&page=1&include_adult=false`)
     .then(response => response.json())
-    .then(movie => dispatch(setMovie(movie)))
+    
+    .then(movies => dispatch(setMovie(movies)))
     .catch(error => console.log(error)); 
+    
   }
 }
