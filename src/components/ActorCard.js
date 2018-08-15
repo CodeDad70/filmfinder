@@ -37,10 +37,10 @@ class ActorCard extends Component {
       <h3>Best known for: </h3>
       {knownFor}<br/>
       
-      <img className="ActorImage" src = {"http://image.tmdb.org/t/p/w300//" + this.props.search.profile_path} alt='Sorry - Image Not Available'/>  
+      <img className="ActorImage" src = {"http://image.tmdb.org/t/p/w300//" + this.props.search.profile_path} alt='Sorry Not Available'/>  
       <p> id = {this.props.search.id} </p>
       </div>
-      {fireRedirectActorsMovies && <Redirect to={`/actorsmovies`} />}
+      {fireRedirectActorsMovies && <Redirect to={`/actors/movies`} />}
       </div>
       
       

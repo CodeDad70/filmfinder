@@ -2,6 +2,7 @@ import React, {Component} from 'react' ;
 import {connect} from 'react-redux';
 import MovieCard from './MovieCard'
 import ActorCard from './ActorCard'
+import MovieSearch from '../containers/MovieSearch'
 
 let renderMovies
 
@@ -24,7 +25,7 @@ class MovieDisplay extends Component {
     return (
       <div>
       <h1>Here are your movies: </h1>
-     
+        <MovieSearch/>
       
         {renderMovies}
 

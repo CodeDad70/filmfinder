@@ -10,6 +10,12 @@ const setMovie = movies => {
   }
 }
 
+export const resetSearchForm = () => {
+  return {
+    type: 'RESET_SEARCH_FORM'
+  }
+}
+
 const setActor = actors => {
   console.log("inside setActor", actors)
   return {
@@ -35,8 +41,11 @@ export const getMovie =  (movie) => {
     return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_API_KEY}&language=en-US&query=${movie.searchValue}&page=1&include_adult=false`)
     .then(response => response.json())
     
-    .then(movies => dispatch(setMovie(movies)))
-    .catch(error => console.log(error)); 
+    .then(movies => {
+      dispatch(setMovie(movies))
+      
+    })  
+      .catch(error => console.log(error)); 
     
   }
 }

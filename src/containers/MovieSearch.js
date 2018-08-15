@@ -16,6 +16,8 @@ class MovieSearch extends Component {
     }
   }  
 
+  
+
   onDropdownSelect = (value) => {
     console.log('Selected value=', value)
     searchParam = value
@@ -33,10 +35,12 @@ class MovieSearch extends Component {
       if ( searchParam ==="Title") {
           this.setState({ fireRedirectMovie: true })
           this.props.getMovie(data)
+          
 
         } else if (searchParam === "Actor") {
           this.setState({ fireRedirectActor: true })
           this.props.getActor(data)
+         
          } else {return}
         
      
@@ -54,7 +58,7 @@ return (
 <div>
   <h1>Search for a movie</h1>
   <form onSubmit={this.handleSearch}>
-   <input required type="text" ref={(input)=>this.getSearch = input} 
+   <input id="search-field" required type="text" ref={(input)=>this.getSearch = input} 
     placeholder="Enter Movie Title" width='300'/>
    <br /><br />
 
