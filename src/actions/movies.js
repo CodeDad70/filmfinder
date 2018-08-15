@@ -18,11 +18,11 @@ const setActor = actors => {
   }
 }
 
-const setActorMovies = actor => {
-  console.log("inside setActor", actor)
+const setActorMovies = actormovies => {
+  console.log("inside setActor", actormovies)
   return {
     type: 'GET_ACTOR_MOVIES_SUCCESS',
-    actor
+    actormovies
   }
 }
 
@@ -59,7 +59,7 @@ return dispatch => {
   return fetch(`https://api.themoviedb.org/3/person/${actor.searchValue}/movie_credits?api_key=${REACT_APP_API_KEY}`)
   
   .then(response => response.json())
-  .then(actor => dispatch(setActorMovies(actor)))
+  .then(actormovies => dispatch(setActorMovies(actormovies)))
   .catch(error => console.log(error));  
   
 }

@@ -2,14 +2,19 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getMovie} from '../actions/movies'
 import {getActor} from '../actions/movies'
-import MovieDisplay from '../components/MovieDisplay'
+import { Redirect } from 'react-router'
 import Select from 'react-select-search'
 import ReactSingleDropdown from 'react-single-dropdown'
 
 let searchParam = "Title"
 
 class MovieSearch extends Component {
-    
+  constructor() {
+    super()
+    this.state = {
+      fireRedirect: false,
+    }
+  }  
 
   onDropdownSelect = (value) => {
     console.log('Selected value=', value)
@@ -26,7 +31,9 @@ class MovieSearch extends Component {
       }
 
       if ( searchParam ==="Title") {
-          this.props.getMovie(data) 
+          this.setState({ fireRedirect: true })
+          this.props.getMovie(data)
+
         } else if (searchParam === "Actor") {
           this.props.getActor(data)
          } else {return}
@@ -39,7 +46,7 @@ class MovieSearch extends Component {
 
 render() { 
 
- 
+  const { fireRedirect } = this.state
 
 return (
 <div>
@@ -59,6 +66,7 @@ return (
     </div>
 
     <button>Search</button>
+    {fireRedirect && <Redirect to={`/movies`} />}
    
   </form>
 

@@ -9,10 +9,10 @@ class MovieDisplay extends Component {
   
 
   render() {
-    console.log("Inside MovieDisplay", this.props.movies.filmReducer.results)
+    
       if(this.props.movies.filmReducer.results) {
-        renderMovies = 
-          this.props.movies.filmReducer.results.map(function(search){ 
+        renderMovies = this.props.movies.filmReducer.results.map(function(search){ 
+            console.log("Inside MovieDisplay", search)
             if(search.title) {
           return <MovieCard key={search.id} search={search} />
             } else if (search.name) {
@@ -24,7 +24,7 @@ class MovieDisplay extends Component {
     return (
       <div>
       <h1>Here are your movies: </h1>
-      <debugger/>
+     
       
         {renderMovies}
 
