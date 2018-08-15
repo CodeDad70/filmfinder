@@ -11,6 +11,7 @@ class MovieSearch extends Component {
   constructor() {
     super()
     this.state = {
+      
       fireRedirectMovie: false,
       fireRedirectActor: false,
     }
@@ -30,6 +31,7 @@ class MovieSearch extends Component {
       const data = {
         id: new Date(),
         searchValue
+
       }
 
       if ( searchParam ==="Title") {
@@ -43,7 +45,7 @@ class MovieSearch extends Component {
          
          } 
         
-     
+         searchParam = "Title"   
       console.log(data)
     }
 

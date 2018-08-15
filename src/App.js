@@ -4,7 +4,7 @@ import MovieSearch from './containers/MovieSearch'
 import MovieDisplay from './components/MovieDisplay'
 import ActorsMoviesDisplay from './components/ActorsMoviesDisplay'
 import NowPlaying from './components/NowPlaying';
-import NowPlayingCard from './components/NowPlayingCard'
+import NowPlayingDisplay from './components/NowPlayingDisplay'
 import './stylesheets/App.css';
 
 class App extends React.Component {
@@ -18,7 +18,7 @@ class App extends React.Component {
     
     
     <Route exact path="/" component={MovieSearch}/>
-    <Route exact path="/nowplaying" component={NowPlayingCard}/>
+    <Route exact path="/nowplaying" component={NowPlayingDisplay}/>
     <Route exact path="/actors/movies" component={ActorsMoviesDisplay} />
     <Route exact path="/movies" component={MovieDisplay} />
     <Route exact path="/actor" component={MovieDisplay} />
