@@ -24,6 +24,7 @@ const setActor = actors => {
   }
 }
 
+
 const setActorMovies = actormovies => {
   console.log("inside setActor", actormovies)
   return {
@@ -31,6 +32,7 @@ const setActorMovies = actormovies => {
     actormovies
   }
 }
+
 
 const setNowPlaying = nowplaying => {
   console.log("inside setNowPlaying")
@@ -70,6 +72,7 @@ export const getActor =  (actors) => {
   }
 }
 
+
 export const getActorMovies =  (actor) => {
   console.log('inside getActorMovies',  actor.searchValue)
 return dispatch => {
@@ -82,16 +85,17 @@ return dispatch => {
 }
 }
 
+
+
 export const getNowPlaying =  () => {
-  
-return dispatch => {
-  return fetch(`https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=${REACT_APP_API_KEY}`)
-  
-  .then(response => response.json())
-  .then(nowplaying => dispatch(setNowPlaying(nowplaying)))
-  .catch(error => console.log(error));  
-  
-}
+  return dispatch => {
+    return fetch(`https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=${REACT_APP_API_KEY}`)
+    
+    .then(response => response.json())
+    .then(nowplaying => dispatch(setNowPlaying(nowplaying)))
+    .catch(error => console.log(error));  
+    
+  }
 }
 
 

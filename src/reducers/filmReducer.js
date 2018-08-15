@@ -10,10 +10,11 @@ export default (state = [], action) => {
     console.log("inside reducer", action.actors.results.map(actor=> actor.name))
       return action.actors;
 
+
     case 'GET_ACTOR_MOVIES_SUCCESS':
     console.log("inside reducer", action.actormovies.cast)
       return action.actormovies; 
-
+    
     case 'GET_NOW_PLAYING_SUCCESS':
     console.log("inside reducer", action.nowplaying)
       return action.nowplaying; 

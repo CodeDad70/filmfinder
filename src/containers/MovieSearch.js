@@ -5,7 +5,7 @@ import {getActor} from '../actions/movies'
 import { Redirect } from 'react-router'
 import ReactSingleDropdown from 'react-single-dropdown'
 
-let searchParam = "Title"
+let searchParam = "Movie"
 
 class MovieSearch extends Component {
   constructor() {
@@ -34,7 +34,7 @@ class MovieSearch extends Component {
 
       }
 
-      if ( searchParam ==="Title") {
+      if ( searchParam ==="Movie") {
           this.setState({ fireRedirectMovie: true })
           this.props.getMovie(data)
           
@@ -44,9 +44,9 @@ class MovieSearch extends Component {
           this.props.getActor(data)
          
          } 
+
         
-         searchParam = "Title"   
-      console.log(data)
+         searchParam = "Movie"   
     }
 
     
@@ -61,15 +61,15 @@ return (
   <h1>Search for a movie</h1>
   <form onSubmit={this.handleSearch}>
    <input  required type="text" ref={(input)=>this.getSearch = input} 
-    placeholder="Enter a Movie, Actor, or Director" />
+    placeholder="Enter a Movie or Actor" />
    <br /><br />
 
    <div>
       <ReactSingleDropdown 
-      defaultSelected = 'Title'
+      defaultSelected = 'Movie'
       onSelect={this.onDropdownSelect}
       noAnimation
-      options={['Title','Actor','Director']}
+      options={['Movie','Actor']}
       width='100'/>
     </div>
 
@@ -91,7 +91,7 @@ return (
 const mapStateToProps = state => {
   return {
     getMovie: state.getMovie,
-    getActor: state.getActor 
+    getActor: state.getActor,
   }
 }
 
