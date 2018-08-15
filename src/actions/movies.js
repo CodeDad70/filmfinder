@@ -32,6 +32,14 @@ const setActorMovies = actormovies => {
   }
 }
 
+const setNowPlaying = nowplaying => {
+  console.log("inside setNowPlaying", actormovies)
+  return {
+    type: 'GET_NOW_PLAYING_SUCCESS',
+    nowplaying
+  }
+}
+
 
 
 //  -- Async Actions -- 
@@ -73,6 +81,21 @@ return dispatch => {
   
 }
 }
+
+export const getNowPlaying =  () => {
+  
+return dispatch => {
+  return fetch(`https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=${REACT_APP_API_KEY}`)
+  
+  .then(response => response.json())
+  .then(nowplaying => dispatch(setNowPlaying(nowplaying)))
+  .catch(error => console.log(error));  
+  
+}
+}
+
+
+
 
 
 

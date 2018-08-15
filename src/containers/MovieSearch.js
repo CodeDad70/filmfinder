@@ -41,7 +41,7 @@ class MovieSearch extends Component {
           this.setState({ fireRedirectActor: true })
           this.props.getActor(data)
          
-         } else {return}
+         } 
         
      
       console.log(data)
@@ -58,8 +58,8 @@ return (
 <div>
   <h1>Search for a movie</h1>
   <form onSubmit={this.handleSearch}>
-   <input id="search-field" required type="text" ref={(input)=>this.getSearch = input} 
-    placeholder="Enter Movie Title" width='300'/>
+   <input  required type="text" ref={(input)=>this.getSearch = input} 
+    placeholder="Enter a Movie, Actor, or Director" />
    <br /><br />
 
    <div>
@@ -72,12 +72,12 @@ return (
     </div>
 
     <button>Search</button>
-    {fireRedirectMovie && <Redirect to={`/movies`} />}
-    {fireRedirectActor && <Redirect to={`/actor`} />}
+    
    
   </form>
 
-  
+  {fireRedirectMovie && <Redirect to={`/movies`} />}
+    {fireRedirectActor && <Redirect to={`/actor`} />}
 
 
 </div>

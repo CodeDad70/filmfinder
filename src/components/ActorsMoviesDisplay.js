@@ -21,6 +21,7 @@ class ActorsMoviesDisplay extends Component {
 
     return (
       <div>
+        
         <MovieSearch/>
 
         {renderActorsMovies}
