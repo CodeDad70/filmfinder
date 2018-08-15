@@ -7,6 +7,11 @@ let renderNowPlaying
 
 class NowPlayingDisplay extends Component {
   
+  componentDidMount = () => {
+    
+    this.props.getNowPlaying()
+  }
+
 
   render() {
     

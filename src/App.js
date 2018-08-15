@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import MovieSearch from './containers/MovieSearch'
+import Welcome from './components/Welcome'
 import MovieDisplay from './components/MovieDisplay'
 import ActorsMoviesDisplay from './components/ActorsMoviesDisplay'
 import NowPlaying from './components/NowPlaying';
@@ -17,7 +17,7 @@ class App extends React.Component {
     <NowPlaying/>
     
     
-    <Route exact path="/" component={MovieSearch}/>
+    <Route exact path="/" component={Welcome}/>
     <Route exact path="/nowplaying" component={NowPlayingDisplay}/>
     <Route exact path="/actors/movies" component={ActorsMoviesDisplay} />
     <Route exact path="/movies" component={MovieDisplay} />
