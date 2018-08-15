@@ -2,6 +2,7 @@ import React, {Component} from 'react' ;
 import {connect} from 'react-redux';
 import MovieSearch from '../containers/MovieSearch'
 import NowPlayingCard from './NowPlayingCard';
+import {getNowPlaying} from '../actions/movies'
 
 let renderNowPlaying
 
@@ -38,8 +39,12 @@ class NowPlayingDisplay extends Component {
 
   const mapStateToProps = (state) => {
     return ({
-      movies: state
+      movies: state,
+      getNowPlaying: state.getNowPlaying,
+
     })
   }
   
-  export default connect(mapStateToProps)(NowPlayingDisplay);
+  export default connect(mapStateToProps, {
+    getNowPlaying,
+  })(NowPlayingDisplay)
