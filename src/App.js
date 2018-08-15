@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MovieSearch from './containers/MovieSearch'
 import MovieDisplay from './components/MovieDisplay'
 import ActorsMoviesDisplay from './components/ActorsMoviesDisplay'
+import NowPlaying from './components/NowPlaying';
+import NowPlayingCard from './components/NowPlayingCard'
 import './stylesheets/App.css';
 
 class App extends React.Component {
@@ -12,9 +14,11 @@ class App extends React.Component {
    <Router>
   <div className="card-1">
     <h1> Welcome to the FilmFinder</h1>
+    <NowPlaying/>
     
     
     <Route exact path="/" component={MovieSearch}/>
+    <Route exact path="/nowplaying" component={NowPlayingCard}/>
     <Route exact path="/actors/movies" component={ActorsMoviesDisplay} />
     <Route exact path="/movies" component={MovieDisplay} />
     <Route exact path="/actor" component={MovieDisplay} />

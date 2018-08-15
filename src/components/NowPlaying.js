@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
-import { Redirect } from 'react-router'
-
+import { Redirect } from 'react-router';
+import {getNowPlaying} from '../actions/movies';
+import NowPlayingCard from './NowPlayingCard'
 
 let searchParam = "Title"
 
-class MovieSearch extends Component {
+class NowPlaying extends Component {
   constructor() {
     super()
     this.state = {
@@ -19,7 +19,7 @@ class MovieSearch extends Component {
 
     handleClick = (e) => {
       e.preventDefault();
-      this.setState({ fireRedirectMovie: true })
+      this.setState({ fireRedirectNowPlaying: true })
       this.props.getNowPlaying()
     }
 
@@ -34,7 +34,7 @@ return (
 <div>
   
  
-    <button onClick = {handleClick} >See What's in Theaters</button>
+    <button onClick = {this.handleClick} >See What's in Theaters</button>
     
    
   
@@ -47,9 +47,13 @@ return (
 }
 }
 
+const mapStateToProps = state => {
+  return {
+    getNowPlaying: state.getNowPlaying
+  }
+}
 
+export default connect(mapStateToProps, {
+  getNowPlaying
+})(NowPlaying)
 
-export default connect()(NowPlaying)
-
-
-https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=%3C%3Capi_key%3E%3E"

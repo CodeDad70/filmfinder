@@ -33,7 +33,7 @@ const setActorMovies = actormovies => {
 }
 
 const setNowPlaying = nowplaying => {
-  console.log("inside setNowPlaying", actormovies)
+  console.log("inside setNowPlaying")
   return {
     type: 'GET_NOW_PLAYING_SUCCESS',
     nowplaying
