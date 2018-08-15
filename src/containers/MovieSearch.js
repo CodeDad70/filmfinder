@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {getMovie} from '../actions/movies'
 import {getActor} from '../actions/movies'
 import { Redirect } from 'react-router'
-import Select from 'react-select-search'
 import ReactSingleDropdown from 'react-single-dropdown'
 
 let searchParam = "Title"
@@ -12,7 +11,8 @@ class MovieSearch extends Component {
   constructor() {
     super()
     this.state = {
-      fireRedirect: false,
+      fireRedirectMovie: false,
+      fireRedirectActor: false,
     }
   }  
 
@@ -31,10 +31,11 @@ class MovieSearch extends Component {
       }
 
       if ( searchParam ==="Title") {
-          this.setState({ fireRedirect: true })
+          this.setState({ fireRedirectMovie: true })
           this.props.getMovie(data)
 
         } else if (searchParam === "Actor") {
+          this.setState({ fireRedirectActor: true })
           this.props.getActor(data)
          } else {return}
         
@@ -46,7 +47,8 @@ class MovieSearch extends Component {
 
 render() { 
 
-  const { fireRedirect } = this.state
+  const { fireRedirectMovie } = this.state
+  const { fireRedirectActor } = this.state
 
 return (
 <div>
@@ -66,7 +68,8 @@ return (
     </div>
 
     <button>Search</button>
-    {fireRedirect && <Redirect to={`/movies`} />}
+    {fireRedirectMovie && <Redirect to={`/movies`} />}
+    {fireRedirectActor && <Redirect to={`/actor`} />}
    
   </form>
 

@@ -1,12 +1,21 @@
 import React, {Component} from 'react' ;
 import {connect} from 'react-redux';
 import {getActorMovies} from '../actions/movies'
-
+import { Redirect } from 'react-router'
 
 class ActorCard extends Component {
   
+  constructor() {
+    super()
+    this.state = {
+      fireRedirectActorsMovies: false,
+      
+    }
+  }  
+
   handleClick = (e) => {
     e.preventDefault();
+    this.setState({ fireRedirectActorsMovies: true })
     const searchValue = this.props.search.id;     
     const data = {      
       searchValue
@@ -17,7 +26,7 @@ class ActorCard extends Component {
   }
   
   render() {
-
+    const { fireRedirectActorsMovies } = this.state
     let knownFor = this.props.search.known_for.map(movie=> <p>{movie.title}</p> )  
     
     return (
@@ -31,7 +40,9 @@ class ActorCard extends Component {
       <img className="ActorImage" src = {"http://image.tmdb.org/t/p/w300//" + this.props.search.profile_path} alt='Sorry - Image Not Available'/>  
       <p> id = {this.props.search.id} </p>
       </div>
+      {fireRedirectActorsMovies && <Redirect to={`/actorsmovies`} />}
       </div>
+      
       
     )
   }
